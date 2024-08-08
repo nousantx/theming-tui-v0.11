@@ -23,7 +23,7 @@ function App() {
           <span className="text-primary-500 ri-contrast-2-line fs-1.1em block mr-6px"></span>
           Theme<span className="text-primary-500 fw-500">UI</span>
         </h1>
-        <div className="center gap-8px">
+        <div className="center gap-12px">
           <a
             href="https://github.com/nousantx/theming-tui-v0.11"
             className="btn bg-neutral-800 text-primary-500 hover:bg-neutral-400 tr-time-0.3s box-28px p-0 fs-16px"

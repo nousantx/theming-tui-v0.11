@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { colors } from "../../lib/color";
 
 export const useColorSet = () => {

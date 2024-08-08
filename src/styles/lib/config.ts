@@ -3,7 +3,9 @@ import { useColor } from "../../lib/get-color";
 import { mergeObjects } from "../../lib/merge";
 import { cssClass } from "../../lib/get-classes";
 
-export const getStyleConfig = colorSet => ({
+type Colors = { [color: string]: string[] };
+
+export const getStyleConfig = (colorSet: Colors) => ({
   property: [
     txProps.default,
     {
@@ -17,8 +19,7 @@ export const getStyleConfig = colorSet => ({
   ],
   classes: mergeObjects(
     cssClass({
-      "transition-color":{transitionProperty: "background-color, color, border-color",
-        transitionDuration: "0.15s",},
+      "transition-color": { transitionProperty: "background-color, color, border-color", transitionDuration: "0.15s" },
       btn: {
         color: "var(--btn-color, #fff)",
         backgroundColor: "var(--btn-bg)",
