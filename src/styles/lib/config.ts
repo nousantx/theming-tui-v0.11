@@ -7,7 +7,7 @@ type Colors = { [color: string]: string[] };
 
 const colorConfig = (colors: Colors) => ({
   color: useColor(colors, "text"),
-  backgroundColor: useColor(colors, "bg")
+  backgroundColor: useColor(colors, "bg"),
 });
 
 export const getStyleConfig = (colors: Colors): any => ({
@@ -16,11 +16,11 @@ export const getStyleConfig = (colors: Colors): any => ({
     ...{
       blur: {
         property: "filter",
-        value: "blur({value})"
+        value: "blur({value})",
       },
       "back-blur": {
         property: "backdropFilter",
-        value: "blur({value})"
+        value: "blur({value})",
       },
       "bg-opacity": "--bg-opa",
       "btn-text": "--btn-color",
@@ -28,14 +28,14 @@ export const getStyleConfig = (colors: Colors): any => ({
       "btn-border": "--btn-border",
       "btn-radius": "--btn-radius",
       "btn-padding": "--btn-padding",
-      "btn-font-size": "--btn-font-size"
-    }
+      "btn-font-size": "--btn-font-size",
+    },
   },
   classes: merge(
     cssClass({
       "transition-color": {
         transitionProperty: "background-color, color, border-color",
-        transitionDuration: "0.15s"
+        transitionDuration: "0.15s",
       },
       btn: {
         color: "var(--btn-color, #fff)",
@@ -53,25 +53,25 @@ export const getStyleConfig = (colors: Colors): any => ({
         justifyContent: "center",
         transitionProperty: "background-color, color, border-color",
         transitionDuration: "0.15s",
-        outline: "none"
+        outline: "none",
       },
       "btn-sm": {
         "--btn-size-h": "2rem",
         "--btn-padding": "0 0.75rem",
-        "--btn-font-size": "0.75rem"
+        "--btn-font-size": "0.75rem",
       },
       "btn-lg": {
         "--btn-size-h": "2.5rem",
-        "--btn-padding": "0 2rem"
+        "--btn-padding": "0 2rem",
       },
       "btn-icon": {
-        "--btn-size-w": "2.25rem"
+        "--btn-size-w": "2.25rem",
       },
       center: {
         display: "flex",
         alignItems: "center",
-        justifyContent: "center"
-      }
+        justifyContent: "center",
+      },
     }),
     {
       // colored class utility classes
@@ -80,15 +80,15 @@ export const getStyleConfig = (colors: Colors): any => ({
         // other utilities
         display: {
           flex: "flex",
-          iflex: "inline-flex"
+          iflex: "inline-flex",
         },
         justifyContent: {
-          space: "space-between"
+          space: "space-between",
         },
         flexWrap: {
-          "flex-wrap": "wrap"
-        }
-      }
-    }
-  )
+          "flex-wrap": "wrap",
+        },
+      },
+    },
+  ),
 });

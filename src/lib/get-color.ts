@@ -13,18 +13,27 @@ function hexToRgb(hex: string): string {
 }
 
 // Generate range of color classNames
-export function useColor(colors: Colors, prefix: string, selectedColors?: string[]) {
+export function useColor(
+  colors: Colors,
+  prefix: string,
+  selectedColors?: string[],
+) {
   const shadeMapping = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950];
   const colorObject: { [className: string]: string } = {};
 
-  const colorsToProcess = selectedColors && selectedColors.length > 0 ? selectedColors : Object.keys(colors);
+  const colorsToProcess =
+    selectedColors && selectedColors.length > 0
+      ? selectedColors
+      : Object.keys(colors);
 
-  colorsToProcess.forEach(color => {
-    const shades = colors[color].length === 11 ? shadeMapping : shadeMapping.slice(1, 10);
+  colorsToProcess.forEach((color) => {
+    const shades =
+      colors[color].length === 11 ? shadeMapping : shadeMapping.slice(1, 10);
     shades.forEach((shade, index) => {
       const hex = colors[color][index];
       const rgb = hexToRgb(hex);
-      colorObject[`${prefix}-${color}-${shade}`] = `rgb(${rgb} / var(--${prefix}-opa, 1))`;
+      colorObject[`${prefix}-${color}-${shade}`] =
+        `rgb(${rgb} / var(--${prefix}-opa, 1))`;
     });
   });
 

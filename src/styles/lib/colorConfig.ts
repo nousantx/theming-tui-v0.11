@@ -5,13 +5,13 @@ export const useColorSet = () => {
   const [colorSet, setColorSet] = useState(colors);
 
   const changeTheme = () => {
-    setColorSet(prevColorSet => ({
+    setColorSet((prevColorSet) => ({
       ...prevColorSet,
       ...{
         primary: prevColorSet.secondary,
         secondary: prevColorSet.primary,
-        neutral: [...prevColorSet.neutral].reverse()
-      }
+        neutral: [...prevColorSet.neutral].reverse(),
+      },
     }));
   };
 

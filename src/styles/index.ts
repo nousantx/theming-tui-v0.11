@@ -9,9 +9,7 @@ export const styler = (deps = []) => {
   useLayoutEffect(() => {
     use(getStyleConfig(colorSet));
     makeStyles({
-
       body: "bg-neutral-900 text-neutral-100",
-      
     });
     tenoxui();
   }, [colorSet, ...deps]);

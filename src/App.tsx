@@ -8,10 +8,15 @@ interface ColorSwatchProps {
 
 const ColorSwatch: React.FC<ColorSwatchProps> = ({ colorName }) => (
   <div className="mt-2rem">
-    <h3 className="fs-1.3em fw-500 ls--0.025em text-neutral-200">{colorName}</h3>
+    <h3 className="fs-1.3em fw-500 ls--0.025em text-neutral-200">
+      {colorName}
+    </h3>
     <div className="flex ai-center flex-wrap gap-1rem mt-1rem">
-      {[50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950].map(shade => (
-        <div key={shade} className={`box-40px br-6px bg-${colorName.toLowerCase()}-${shade}`}></div>
+      {[50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950].map((shade) => (
+        <div
+          key={shade}
+          className={`box-40px br-6px bg-${colorName.toLowerCase()}-${shade}`}
+        ></div>
       ))}
     </div>
   </div>
@@ -35,7 +40,9 @@ function App() {
 
   const handleThemeChange = () => {
     changeTheme();
-    setThemeIcon(prevIcon => (prevIcon === "ri-moon-clear-line" ? "ri-sun-line" : "ri-moon-clear-line"));
+    setThemeIcon((prevIcon) =>
+      prevIcon === "ri-moon-clear-line" ? "ri-sun-line" : "ri-moon-clear-line",
+    );
   };
 
   return (
@@ -65,7 +72,8 @@ function App() {
           <header className="ta-center tw-balance position-relative">
             <div className="bg-primary-500 box-300px blur-150px position-absolute opa-0.4 z--9 br-100% r-30%"></div>
             <h1 className="lh-1 fs-2.4rem ls--0.030em">
-              <span className="text-primary-500">TenoxUI</span>: It's a CSS framework, trust me!
+              <span className="text-primary-500">TenoxUI</span>: It's a CSS
+              framework, trust me!
             </h1>
             <p className="text-neutral-400 ls--0.025em fs-14px mt-1rem">
               Hard way for creating a theme with this `unique` framework 🗿.
@@ -92,11 +100,13 @@ function App() {
         <article className="p-2rem">
           <header>
             <h2 className="fs-1.8em lh-1 fw-500 ls--0.025em">More Colors</h2>
-            <p className="fs-14px text-neutral-300 ls--0.030em mt-8px">See how the colors work in different mode.</p>
+            <p className="fs-14px text-neutral-300 ls--0.030em mt-8px">
+              See how the colors work in different mode.
+            </p>
           </header>
 
           <section className="mt-1.5rem">
-            {colors.map(color => (
+            {colors.map((color) => (
               <ColorSwatch key={color} colorName={color} />
             ))}
           </section>
