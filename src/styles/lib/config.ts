@@ -1,6 +1,6 @@
 import * as txProps from "@tenoxui/property";
 import { useColor } from "../../lib/get-color";
-import { mergeObjects } from "../../lib/merge";
+import { merge } from "../../lib/merge";
 import { cssClass } from "../../lib/get-classes";
 
 type Colors = { [color: string]: string[] };
@@ -9,6 +9,11 @@ export const getStyleConfig = (colorSet: Colors) => ({
   property: [
     txProps.default,
     {
+      blur: {
+        property: "filter",
+        value: "blur({value})"
+      },
+      "bg-opacity":"--bg-opa",
       "btn-text": "--btn-color",
       "btn-bg": "--btn-bg",
       "btn-border": "--btn-border",
@@ -17,7 +22,7 @@ export const getStyleConfig = (colorSet: Colors) => ({
       "btn-font-size": "--btn-font-size"
     }
   ],
-  classes: mergeObjects(
+  classes: merge(
     cssClass({
       "transition-color": { transitionProperty: "background-color, color, border-color", transitionDuration: "0.15s" },
       btn: {
