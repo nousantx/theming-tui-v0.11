@@ -5,15 +5,24 @@ import { cssClass } from "../../lib/get-classes";
 
 type Colors = { [color: string]: string[] };
 
-export const getStyleConfig = (colorSet: Colors) => ({
-  property: [
-    txProps.default,
-    {
+const colorConfig = (colors: Colors) => ({
+  color: useColor(colors, "text"),
+  backgroundColor: useColor(colors, "bg")
+});
+
+export const getStyleConfig = (colors: Colors): any => ({
+  property: {
+    ...txProps.default,
+    ...{
       blur: {
         property: "filter",
         value: "blur({value})"
       },
-      "bg-opacity":"--bg-opa",
+      "back-blur": {
+        property: "backdropFilter",
+        value: "blur({value})"
+      },
+      "bg-opacity": "--bg-opa",
       "btn-text": "--btn-color",
       "btn-bg": "--btn-bg",
       "btn-border": "--btn-border",
@@ -21,10 +30,13 @@ export const getStyleConfig = (colorSet: Colors) => ({
       "btn-padding": "--btn-padding",
       "btn-font-size": "--btn-font-size"
     }
-  ],
+  },
   classes: merge(
     cssClass({
-      "transition-color": { transitionProperty: "background-color, color, border-color", transitionDuration: "0.15s" },
+      "transition-color": {
+        transitionProperty: "background-color, color, border-color",
+        transitionDuration: "0.15s"
+      },
       btn: {
         color: "var(--btn-color, #fff)",
         backgroundColor: "var(--btn-bg)",
@@ -62,17 +74,20 @@ export const getStyleConfig = (colorSet: Colors) => ({
       }
     }),
     {
-      // Will generate color classNames from `text-primary-50` to `text-primary-950` range that can be used for changing element's color
-      color: useColor(colorSet, "text"),
-      backgroundColor: useColor(colorSet, "bg"),
-
-      // other utilities
-      display: {
-        flex: "flex",
-        iflex: "inline-flex"
-      },
-      justifyContent: {
-        space: "space-between"
+      // colored class utility classes
+      ...colorConfig(colors),
+      ...{
+        // other utilities
+        display: {
+          flex: "flex",
+          iflex: "inline-flex"
+        },
+        justifyContent: {
+          space: "space-between"
+        },
+        flexWrap: {
+          "flex-wrap": "wrap"
+        }
       }
     }
   )

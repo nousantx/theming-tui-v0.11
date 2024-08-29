@@ -6,9 +6,12 @@ export const useColorSet = () => {
 
   const changeTheme = () => {
     setColorSet(prevColorSet => ({
-      primary: prevColorSet.secondary,
-      secondary: prevColorSet.primary,
-      neutral: [...prevColorSet.neutral].reverse()
+      ...prevColorSet,
+      ...{
+        primary: prevColorSet.secondary,
+        secondary: prevColorSet.primary,
+        neutral: [...prevColorSet.neutral].reverse()
+      }
     }));
   };
 

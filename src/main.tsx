@@ -4,8 +4,12 @@ import App from "./App.tsx";
 import "./styles/index.css";
 import "nosant-icon";
 import "remixicon/fonts/remixicon.css";
+import { ThemeProvider } from "./styles/lib/colorContext.tsx";
+
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <App />
+    <ThemeProvider>
+      <App />
+    </ThemeProvider>
   </React.StrictMode>
 );
