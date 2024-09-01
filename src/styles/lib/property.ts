@@ -12,6 +12,9 @@ export const property: Property = {
       value: "blur({value})"
     },
     "bg-opacity": "--bg-opa",
-    "text-opacity": "--text-opa"
+    "text-opacity": "--text-opa",
+    "shadow-opacity": "--tx_shadow-opa",
+    "to-a": "touchAction",
+    "u-s": "userSelect"
   }
 };

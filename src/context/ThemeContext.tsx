@@ -32,10 +32,17 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
       setColorSet(prevColorSet => ({
         // default colors
         ...prevColorSet,
-        // swapped colors
-        primary: prevColorSet.secondary, // use secondary color for primary
+
+        // use different color for lightmode
+        // primary: prevColorSet.secondary,
+        // or use other color
+        primary: prevColorSet.blue,
+
+        // optionally swapping the secondary color
         secondary: prevColorSet.primary,
-        neutral: [...prevColorSet.neutral].reverse(), // reverse the order of neutral color
+
+        // reverse the order of neutral color
+        neutral: [...prevColorSet.neutral].reverse()
       }));
     } else {
       // use original base colors in darkmode

@@ -1,7 +1,7 @@
 import { useColorContext } from "./context/ThemeContext";
 import { styler } from "./styles";
 import React, { useState, useLayoutEffect } from "react";
-
+import Draggable from "./components/draggable";
 interface ColorSwatchProps {
   colorName: string;
 }
@@ -60,7 +60,7 @@ function App() {
           </button>
         </nav>
       </header>
-      <main className="w-mx-1440px mx-auto ">
+      <main className="w-mx-1440px mx-auto">
         <article className="p-2rem h-mn-100vh center">
           <header className="ta-center tw-balance position-relative">
             <div className="bg-primary-500 box-300px blur-150px position-absolute opa-0.4 z--9 br-100% r-30%"></div>
@@ -95,13 +95,15 @@ function App() {
             <p className="fs-14px text-neutral-300 ls--0.030em mt-8px">See how the colors work in different mode.</p>
           </header>
 
-          <section className="mt-1.5rem">
+          <section className="mt-1.5rem flex flex-wrap gap-2rem">
             {colors.map(color => (
               <ColorSwatch key={color} colorName={color} />
             ))}
           </section>
         </article>
       </main>
+
+      <Draggable />
     </>
   );
 }
